@@ -71,7 +71,7 @@ public class MainApp extends Application {
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class
-                    .getResource("../view/RootLayout.fxml"));
+                    .getResource("/ch/makery/address/view/RootLayout.fxml"));
             rootLayout = (BorderPane) loader.load();
 
             // Show the scene containing the root layout.
@@ -98,7 +98,7 @@ public class MainApp extends Application {
         try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("../view/PersonOverview.fxml"));
+            loader.setLocation(MainApp.class.getResource("/ch/makery/address/view/PersonOverview.fxml"));
             AnchorPane personOverview = (AnchorPane) loader.load();
 
             // Set person overview into the center of root layout.
@@ -117,7 +117,7 @@ public class MainApp extends Application {
         try {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("../view/PersonEditDialog.fxml"));
+            loader.setLocation(MainApp.class.getResource("/ch/makery/address/view/PersonEditDialog.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
 
             // Create the dialog Stage.
@@ -224,7 +224,7 @@ public class MainApp extends Application {
         try {
             // Load the fxml file and create a new stage for the popup.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("../view/BirthdayStatistics.fxml"));
+            loader.setLocation(MainApp.class.getResource("/ch/makery/address/view/BirthdayStatistics.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Birthday Statistics");
