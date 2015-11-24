@@ -1,5 +1,5 @@
 .background {
-    -fx-background-color: #1d1d1d;
+    -fx-background-color: orange;
 }
 
 .label {
@@ -25,7 +25,7 @@
 
 .table-view {
     -fx-base: #1d1d1d;
-    -fx-control-inner-background: #1d1d1d;
+    -fx-control-inner-background: #CCC7C1;
     -fx-background-color: #1d1d1d;
     -fx-table-cell-border-color: transparent;
     -fx-table-header-border-color: transparent;
@@ -98,6 +98,7 @@
  * Author: Pedro Duque Vieira
  * http://pixelduke.wordpress.com/2012/10/23/jmetro-windows-8-controls-on-java/
  */
+ 
 .button {
     -fx-padding: 5 22 5 22;   
     -fx-border-color: #e2e2e2;
@@ -108,6 +109,8 @@
     -fx-font-size: 11pt;
     -fx-text-fill: #d8d8d8;
     -fx-background-insets: 0 0 0 0, 0, 1, 2;
+  -fx-background-repeat: no-repeat;
+  -fx-background-position: left;
 }
 
 .button:hover {
@@ -117,6 +120,7 @@
 .button:pressed, .button:default:hover:pressed {
   -fx-background-color: white;
   -fx-text-fill: #1d1d1d;
+ 
 }
 
 .button:focused {

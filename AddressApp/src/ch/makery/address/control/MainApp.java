@@ -16,14 +16,18 @@ import ch.makery.address.view.BirthdayStatisticsController;
 import ch.makery.address.view.PersonEditDialogController;
 import ch.makery.address.view.PersonOverviewController;
 import ch.makery.address.view.RootLayoutController;
+import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -34,6 +38,8 @@ public class MainApp extends Application {
 	
     private Stage primaryStage;
     private BorderPane rootLayout;
+    private double opacity = 1;
+    private Label lbl;
 
 
     private ObservableList<Person> personData = FXCollections.observableArrayList();
@@ -50,6 +56,79 @@ public class MainApp extends Application {
         personData.add(new Person("Stefan", "Meier"));
         personData.add(new Person("Martin", "Mueller"));
     }
+    private class MyTimer extends AnimationTimer {
+
+        @Override
+        public void handle(long now) {
+        
+            doHandle();
+        }
+
+        private void doHandle() {
+
+            opacity -= 0.01;
+            lbl.opacityProperty().set(opacity);
+
+            if (opacity <= 0) {
+                stop();
+                System.out.println("Animation stopped");
+                initRootLayoutBienvenida();
+                showPersonOverview();
+            }
+        }
+    }
+
+    
+
+    /**
+     * Initializes the root layout.
+     */
+    public void initRootLayout() {
+        
+            // Load root layout from fxml file.
+            StackPane root = new StackPane();
+            Scene scene = new Scene(root, 700, 400);
+            AnimationTimer timer = new MyTimer();
+            timer.start();
+            lbl = new Label("Bienvenido");
+            lbl.setFont(Font.font(48));
+            root.getChildren().add(lbl);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+
+            
+        
+    }
+    public void initRootLayoutBienvenida() {
+        try {
+            // Load root layout from fxml file.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("../view/RootLayout.fxml"));
+            rootLayout = (BorderPane) loader.load();
+
+            // Show the scene containing the root layout.
+            Scene scene = new Scene(rootLayout);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+            
+            
+         // Give the controller access to the main app.
+            RootLayoutController controller = loader.getController();
+            controller.setMainApp(this);
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+     // Try to load last opened person file.
+        File file = getPersonFilePath();
+        if (file != null) 
+            loadPersonDataFromFile(file);
+    }
+
+
+    
+
 
     public ObservableList<Person> getPersonData() {
         return personData;
@@ -66,7 +145,7 @@ public class MainApp extends Application {
 
         showPersonOverview();
     }
-    public void initRootLayout() {
+    public void initRootLayout2() {
         try {
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
