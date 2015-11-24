@@ -68,7 +68,7 @@ import javafx.util.Duration;
 /**
  *
  * @author Cris
- *
+ * @version 0.9
  */
 public class MainApp extends Application {
 
