@@ -15,7 +15,7 @@
    <children>
       <SplitPane dividerPositions="0.3494983277591973" prefHeight="400.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
-          <AnchorPane maxWidth="370.0" minHeight="0.0" minWidth="180.0" prefHeight="160.0" prefWidth="100.0" styleClass="background">
+          <AnchorPane maxWidth="370.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="background">
                <children>
                   <TableView fx:id="personTable" layoutX="-13.0" layoutY="70.0" maxHeight="173.0" prefHeight="298.0" prefWidth="173.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>

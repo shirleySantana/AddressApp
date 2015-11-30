@@ -1,5 +1,8 @@
 .background {
-    -fx-background-color: orange;
+   	    -fx-background-image: url("../../../../../resources/images/blue.jpg");
+   	    	-fx-background-repeat: no-repeat;
+	      -fx-background-position:center;
+
 }
 
 .label {
@@ -27,8 +30,6 @@
     -fx-base: #1d1d1d;
     -fx-control-inner-background: white;
     -fx-background-color: #1d1d1d;
-    -fx-table-cell-border-color: transparent;
-    -fx-table-header-border-color: transparent;
     -fx-padding: 5;
 }
 
@@ -54,6 +55,7 @@
     -fx-text-fill: white;
     -fx-alignment: center-left;
     -fx-opacity: 1;
+    
 }
 
 .table-view:focused .table-row-cell:filled:focused:selected {
