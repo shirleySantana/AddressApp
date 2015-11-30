@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="300.0" prefWidth="400.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.view.LoginController">
+   <children>
+      <Label fx:id="lblUsr" layoutX="57.0" layoutY="103.0" text="Usuario" />
+      <Label fx:id="lblPwd" layoutX="57.0" layoutY="161.0" text="Contraseña" />
+      <TextField fx:id="txtUsr" layoutX="142.0" layoutY="99.0" />
+      <PasswordField fx:id="txtPwd" layoutX="142.0" layoutY="157.0" />
+      <Button fx:id="login" layoutX="142.0" layoutY="226.0" mnemonicParsing="false" onAction="#handleLogin" text="Login" />
+      <Label fx:id="lblTitle" layoutX="142.0" layoutY="23.0" styleClass="label-header" text="Adress App" />
+      <ImageView fx:id="icon" fitHeight="40.0" fitWidth="40.0" layoutX="90.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../resources/images/Address_Book.png" />
+         </image>
+      </ImageView>
+      <Rectangle fx:id="rect" arcHeight="5.0" arcWidth="5.0" fill="#7a7a7a" height="40.0" layoutX="284.0" layoutY="220.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="40.0" />
+   </children>
+</AnchorPane>

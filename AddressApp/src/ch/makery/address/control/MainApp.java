@@ -13,17 +13,32 @@ import org.controlsfx.dialog.Dialogs;
 import ch.makery.address.model.Person;
 import ch.makery.address.model.PersonListWrapper;
 import ch.makery.address.view.BirthdayStatisticsController;
+import ch.makery.address.view.LoginController;
 import ch.makery.address.view.PersonEditDialogController;
 import ch.makery.address.view.PersonOverviewController;
 import ch.makery.address.view.RootLayoutController;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -56,16 +71,40 @@ public class MainApp extends Application {
     }
     @Override
     public void start(Stage primaryStage) {
+    	
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("AddressApp");
 
         // Set the application icon.
         this.primaryStage.getIcons().add(new Image("file:resources/images/Address_Book.png"));
 
-        initRootLayout();
+        initLoginLayout();
 
-        showPersonOverview();
     }
+    public void initLoginLayout(){
+    	try{
+    		FXMLLoader loader = new FXMLLoader();
+    		loader.setLocation(MainApp.class
+    				.getResource("/ch/makery/address/view/LoginLayout.fxml"));
+            AnchorPane login = (AnchorPane) loader.load();
+
+    		Scene scene = new Scene(login);
+    		primaryStage.setScene(scene);
+    		
+    		 // Give the controller access to the main app.
+            LoginController controller = loader.getController();
+            controller.setMainApp(this);
+            
+            primaryStage.show();
+    	}catch(IOException e){
+    		e.printStackTrace();
+    	}
+    	
+    	
+    }
+    
+    
+    
     public void initRootLayout() {
         try {
             // Load root layout from fxml file.
